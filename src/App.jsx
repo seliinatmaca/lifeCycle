@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import FunctionComp from "./components/functionComp";
+import UserPage from "./components/UserPage";
+import CountDown from "./components/CountDown";
 
-function App() {
+const App = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  console.log(isVisible);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <button
+        className="btn btn-danger mb-5"
+        onClick={() => setIsVisible(!isVisible)}
+      >
+        Gizle/Göster
+      </button>
+
+      {isVisible && <FunctionComp />}
+
+      <UserPage />
+      <CountDown />
     </div>
   );
-}
+};
 
 export default App;
